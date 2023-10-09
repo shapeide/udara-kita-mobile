@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.com.google.dagger.hilt.android)
+    alias(libs.plugins.com.google.devtools.ksp)
 }
 
 android {
@@ -47,6 +49,11 @@ dependencies {
     implementation(project(mapOf("path" to ":ui")))
     implementation(project(mapOf("path" to ":remote")))
     implementation(project(mapOf("path" to ":core")))
+
+    implementation(libs.timber)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
 }
